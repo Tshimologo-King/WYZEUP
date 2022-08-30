@@ -23,12 +23,11 @@ export default createStore({
     careers(state, careers) {
       state.careers = careers;
     },
-    career(state, career){
+    career(state, career) {
       state.career = career;
-    }
+    },
   },
   actions: {
-
     //Register, Login & Verification
     register: async (context, payload) => {
       fetch("https://wyze-up.herokuapp.com/users/register", {
@@ -73,20 +72,20 @@ export default createStore({
           .then((data) => {
             context.commit("user", data.user);
           });
-      console.log(data);
+        console.log(data, payload);
       } else {
         alert(data);
       }
     },
 
     //Careers, Posts, Articles, Podcasts, User Profiles (Single View included)
-    getCareers: async(context) => {
+    getCareers: async (context) => {
       const response = await fetch("https://wyze-up.herokuapp.com/Careers")
-      .then((res) => res.json())
-      .then((data) => {
-        return data;
-      });
-      if (response.length === 0){
+        .then((res) => res.json())
+        .then((data) => {
+          return data;
+        });
+      if (response.length === 0) {
         console.log("No Careers Available😢");
       } else {
         context.commit("careers", response);
@@ -94,16 +93,11 @@ export default createStore({
     },
     getCareer: async (context, id) => {
       fetch("https://wyze-up.herokuapp.com/Careers/" + id)
-      .then((res) => res.json())
-      .then((data) => (this.careers = data))
-      .catch((err) => context.commit("career", career));
+        .then((res) => res.json())
+        .then((data) => (this.careers = data))
+        .catch((err) => context.commit("career", career));
     },
-
-
-
   },
-
-
 
   modules: {},
 });

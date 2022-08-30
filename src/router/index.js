@@ -36,16 +36,6 @@ const routes = [
     name: "podcast",
     component: () => import("../components/podcast.vue"),
   },
-  {
-    path: "/CommunityTab",
-    name: "CommunityTab",
-    component: () => import("../components/CommunityTab.vue"),
-  },
-  {
-    path: "/Articles",
-    name: "Articles",
-    component: () => import("../components/Articles.vue"),
-  },
 ];
 
 const router = createRouter({
