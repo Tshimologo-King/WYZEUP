@@ -208,15 +208,24 @@
         </h3>
       </div>
       <div class="row">
-        <div class="col-md-6"></div>
-        <div class="col-md-6"></div>
-        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="cardHeader">
+              <h3>Subscribe to our free package</h3>
+              <p>ICON</p>
+            </div>
+            <div class="cardBody">
+              <ul>
+                <li>Get access to 12 000 Careers</li>
+                <li>Access to Podcasts</li>
+                <li>Access to Community Posts</li>
+                <li>Access to Articles</li>
+              </ul>
+              <button @click="subscribe">Subscribe</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-        necessitatibus totam cumque modi officiis, placeat ea impedit iste
-        facere commodi libero molestiae praesentium, dolore asperiores?
-      </p>
     </section>
 
     <section id="comment">contact form</section>
@@ -330,6 +339,39 @@ export default {};
   height: 50vh;
   overflow: hidden;
   padding: 20px;
+  background-color: lightblue;
+}
+#subscribe .card {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+  flex-direction: column;
+  width: fit-content;
+  margin-inline: auto;
+  padding: 20px;
+  margin-top: 10px;
+  box-shadow: 1px 3px 4px black;
+}
+#subscribe
+.cardBody {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#subscribe .cardHeader {
+  margin-bottom: 1rem;
+}
+#subscribe .cardBody ul li{
+  list-style: none;
+}
+#subscribe .card button {
+  margin-top: 1rem;
+  margin-inline: auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0.5px solid black;
+  color: blue;
 }
 
 /* CONTACT US SECTION */

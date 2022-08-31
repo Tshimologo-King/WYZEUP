@@ -2,11 +2,11 @@
   <div v-if="career">
     <div class="card">
       <img :src="career.careerURLImage" :alt="image" />
-      <strong>{{ career.careerTitle }}</strong>
-      <strong>{{ career.careerIndustry }}</strong>
-      <p>{{ career.careerDescription }}</p>
-      <p>{{ career.careerDayInLife }}</p>
-      <p>{{ career.institutions }}</p>
+      <strong>Career Title: {{ career.careerTitle }}</strong>
+      <strong>Career Industry: {{ career.careerIndustry }}</strong>
+      <p>Career Description: {{ career.careerDescription }}</p>
+      <p>Career Role & Responsibilities: {{ career.careerDayInLife }}</p>
+      <p>Institutions offering courses: {{ career.institutions }}</p>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 <script>
 import store from "@/store";
 export default {
-  props: ["id"],
+  props: ["idCareers"],
   computed: {
     career() {
       return store.state.career;

@@ -83,9 +83,9 @@ export default createStore({
       const response = await fetch("https://wyze-up.herokuapp.com/Careers")
         .then((res) => res.json())
         .then((data) => {
-          return data;
+          return data.results;
         });
-      if (response.length === 0) {
+      if (!response.length || response == null) {
         console.log("No Careers Available😢");
       } else {
         context.commit("careers", response);
