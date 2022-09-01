@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import Podcasts from "../views/Podcasts.vue";
 import AboutView from "../views/Careers.vue";
 import Login from "../components/Login.vue";
 import Register from "../components/Register.vue";
@@ -32,9 +33,9 @@ const routes = [
     component: () => import("../components/adminDashboard.vue"),
   },
   {
-    path: "/podcast",
-    name: "podcast",
-    component: () => import("../components/podcast.vue"),
+    path: "/Podcasts",
+    name: "podcasts",
+    component: () => import("../views/Podcasts.vue"),
   },
 ];
 

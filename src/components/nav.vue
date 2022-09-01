@@ -15,7 +15,7 @@
           >
         </li>
         <li>
-          <router-link to="/Podcast">
+          <router-link to="/Podcasts">
             <font-awesome-icon icon="compass" />Podcast</router-link
           >
         </li>

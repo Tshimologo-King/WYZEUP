@@ -6,6 +6,8 @@ export default createStore({
     users: null,
     careers: null,
     career: null,
+    podcasts: null,
+    podcast: null,
     subscription: null,
     token: null,
   },
@@ -20,11 +22,17 @@ export default createStore({
     token(state, token) {
       state.token = token;
     },
-    careers(state, careers) {
+    setCareers(state, careers) {
       state.careers = careers;
     },
-    career(state, career) {
+    setCareer(state, career) {
       state.career = career;
+    },
+    setPodcasts(state, podcasts) {
+      state.podcasts = podcasts;
+    },
+    setPodcast(state, podcast) {
+      state.podcast = podcast;
     },
   },
   actions: {
@@ -88,14 +96,33 @@ export default createStore({
       if (!response.length || response == null) {
         console.log("No Careers Available😢");
       } else {
-        context.commit("careers", response);
+        context.commit("setCareers", response);
       }
     },
     getCareer: async (context, id) => {
       fetch("https://wyze-up.herokuapp.com/Careers/" + id)
         .then((res) => res.json())
         .then((data) => (this.careers = data))
-        .catch((err) => context.commit("career", career));
+        .catch((err) => context.commit("setCareer", career));
+    },
+
+    getPodcasts: async (context) => {
+      const pod = await fetch("https://wyze-up.herokuapp.com/Podcasts")
+        .then((res) => res.json())
+        .then((data) => {
+          return data.results;
+        });
+      if (data.results == null) {
+        console.log("Unfortunately there are no podcasts available 🎤🚫");
+      } else {
+        context.commit("setPodcasts", pod);
+      }
+    },
+    getPodcast: async (context, id) => {
+      fetch("https://wyze-up.herokuapp.com/Podcasts/" + id)
+        .then((res) => res.json())
+        .then((data) => (this.podcasts = data))
+        .catch((err) => context.commit("setPodcast", podcast));
     },
   },
 
